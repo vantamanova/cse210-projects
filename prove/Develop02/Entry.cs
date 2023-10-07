@@ -2,11 +2,11 @@ using System.Runtime.CompilerServices;
 using System.Transactions;
 
 /// <summary>
-/// This is the class responsible for creatin and holdin information
-/// about the curent entry
+/// This is the class responsible for creating and holding information
+/// about the current entry
 /// 
-/// To exceed the requerments I've created one more attribute for this class _mood.
-/// It is displayd and saved to a file with the resf of data
+/// To exceed the requirements I've created one more attribute for this class _mood.
+/// It is displayed and saved to a file with the resf of data
 /// </summary>
 class Entry
 {
@@ -16,7 +16,7 @@ class Entry
     public string _mood;
 
     public void NewEntry(string prompt) {
-        //Getting curent date
+        //Getting current date
         DateTime theCurrentTime = DateTime.Now;
         _date = theCurrentTime.ToShortDateString();
 
@@ -24,12 +24,12 @@ class Entry
         _prompt = prompt;
 
         // getting users input for _answer and storing it as an atribbute
-        Console.Write("> ");
+        Console.Write("> "); 
         _answer = Console.ReadLine();
         Console.WriteLine();
 
         // Getting users input for _mood and storing it as an attrubute
-        Console.Write("Discribe how you feel in one word > ");
+        Console.Write("Describe how you feel in one word > ");
         _mood = Console.ReadLine();
         
     }

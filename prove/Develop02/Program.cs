@@ -10,16 +10,16 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Create needed obgects
+        // Creates needed objects
         PromptGenerator prompt = new PromptGenerator();
         Journal journal = new Journal(); 
         
-        // Display the greeting
-        Console.WriteLine("Welcome to the Jornal Program!");
-        Console.WriteLine("Please select on of the following choises:");
+        // Displays the greeting
+        Console.WriteLine("Welcome to the Journal Program!");
+        Console.WriteLine("Please select one of the following options:");
 
 
-        // Shows menu with optiont to a consol prompti
+        // Shows the menu with options to a consol
         int menuNum = -1;
         while (menuNum != 5)
         {
@@ -32,24 +32,24 @@ class Program
             Console.WriteLine("");
             Console.Write("What would you like to do? > ");
 
-            // Storing users input to a variable and converse it into int
+            // Stores user's input to a variable and converses it into int
             string input = Console.ReadLine();
             menuNum = int.Parse(input);
 
-            // According users input doing the following:
-            // Create a new Entry obgect
+            // Depending on user's input does the following:
+            // Creates a new Entry obgect
             if (menuNum == 1) 
             {
-                // Generate the prompt
+                // Generates the prompt
                 string generatedPrompt = prompt.GeneratePrompt();
                 
-                // Creates new Entery object
+                // Creates new Entry object
                 Entry entry = new Entry();
                 entry.NewEntry(generatedPrompt);
 
-                // Adds the entery to a Jusnal
+                // Adds the entry to a Journal
                 journal._entryJournal = entry;
-                journal.AddEntry();
+                journal.AddEntry(); 
                 
             }
             else if (menuNum == 2)
@@ -59,7 +59,7 @@ class Program
             }
             else if (menuNum == 3)
             {
-                // Loads the Jurnal from the file. Prompts user for a file name
+                // Loads the Journal from the file. Prompts user for a file name
                 Console.Write("Please enter the file name: > ");
                 journal._fileName = Console.ReadLine();
                 journal.LoadFromFile();

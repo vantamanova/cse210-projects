@@ -2,10 +2,10 @@ using System.Runtime.CompilerServices;
 using System.Transactions;
 
 /// <summary>
-/// This class is responsoble for creating a Jurnal:
-/// add new Entries to the Jurnal,
-/// save Jurnal to the file,
-/// load data from the file and Displays the Jurnal
+/// This class is responsible for creating a Journal:
+/// adds new Entries to the Journal,
+/// saves Journal to the file,
+/// loads data from the file and Displays the Journal
 /// </summary>
 
 class Journal
@@ -15,7 +15,7 @@ class Journal
     public List<Entry> _entriesJournal = new List<Entry>();
     
     public void AddEntry()
-    // Adds the curent enrty to the list of Juornal entries
+    // Adds the curent enrty to the list of Journal entries
     {
         _entriesJournal.Add(_entryJournal);
     }
@@ -24,7 +24,7 @@ class Journal
     // Saves the list of entries to a file. Name of the file must be input by the user
     // In addition the line with the status of the download was added
     {
-        using (StreamWriter outputFile = new StreamWriter(_fileName))
+        using (StreamWriter outputFile = new StreamWriter(_fileName, false))
         {
             foreach (Entry element in _entriesJournal)
             {
@@ -36,7 +36,7 @@ class Journal
 
     public List<Entry> LoadFromFile()
     // Loads the data from the file and saves it to the list
-    // In addition the line with the stattus of the download was added
+    // In addition the line with the status of the download was added
     {
         string[] lines = System.IO.File.ReadAllLines(_fileName);
 
@@ -56,7 +56,7 @@ class Journal
     }
 
     public void DisplayJournal()
-    // Displays every entry in the Jurnal using the ShowEntry() method
+    // Displays every entry in the Journal using the ShowEntry() method
     {
         foreach (Entry element in _entriesJournal){
             element.ShowEntry();

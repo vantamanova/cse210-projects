@@ -3,7 +3,7 @@ using System.Transactions;
 
 /// <summary>
 /// This class is responsible for generating the random prompt from the list
-/// List with promprts is drovided.
+/// List with prompts is provided.
 /// </summary>
 class PromptGenerator
 {
