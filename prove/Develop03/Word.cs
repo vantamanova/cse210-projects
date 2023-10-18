@@ -1,13 +1,16 @@
 using System.Diagnostics;
 
+/// <summary>
+/// This class is responsible for track of a single word and the way to hide it
+/// </summary>
+
 class Word {
     private string _word;
     private bool _isHidden = false;
 
     // Construcror for a Word object
-    public Word(string word, bool showOrHide = true) {
+    public Word(string word) {
         _word = word;
-        showOrHide = true;
     }
 
     public string GetWord() {
@@ -23,10 +26,6 @@ class Word {
             return false;
         }
     }
-    /*public string Show() {
-        string word = _word;
-        return word;
-    }*/ //do I need it?
 
     public void Hide() {
         string newWord = "";
@@ -36,9 +35,5 @@ class Word {
         }
         _isHidden = true;
         _word = newWord;
-    }
-
-    public bool IsHidden() {
-        return _isHidden;
     }
 }
