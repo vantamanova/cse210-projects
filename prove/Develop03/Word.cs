@@ -6,9 +6,9 @@ using System.Diagnostics;
 
 class Word {
     private string _word;
-    private bool _isHidden = false;
+    private bool _isHidden = false; 
 
-    // Construcror for a Word object
+    // Constructor for a Word object
     public Word(string word) {
         _word = word;
     }

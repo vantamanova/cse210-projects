@@ -1,5 +1,9 @@
 using System.Dynamic;
 
+/// <summary>
+/// This class is responsible for keepin track of the book, chapter and verse information
+/// </summary>
+
 class Reference 
 {
     private string _book;
@@ -22,7 +26,7 @@ class Reference
         _book = book;
         _chapter = chapter;
         _verse = verse;
-        _endVerse = endVerse;
+        _endVerse = endVerse; 
 
     }
 
