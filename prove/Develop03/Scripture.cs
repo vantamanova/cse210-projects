@@ -18,10 +18,10 @@ class Scripture {
     // Constructor for Scripture Class
     public Scripture() {
         // Creates a Reference object
-        Reference reference = new Reference("Proverbs", "3", "5", "6");
+        Reference reference = new Reference("Proverbs", 3, 5, 6);
 
         // Use to check how the program works with one-verse scripture:
-        //Reference reference = new Reference("John", "3", "16");
+        //Reference reference = new Reference("John", 3, 16);
 
         _reference = reference.GetString(endVerse:true);
         

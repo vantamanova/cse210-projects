@@ -7,13 +7,13 @@ using System.Dynamic;
 class Reference 
 {
     private string _book;
-    private string _chapter;
-    private string _verse;
-    private string _endVerse;
+    private int _chapter;
+    private int _verse;
+    private int _endVerse;
     private string _referenceStr;
 
     // Constructor for object with one verse
-    public Reference(string book, string chapter, string verse) 
+    public Reference(string book, int chapter, int verse) 
     {
         _book = book;
         _chapter = chapter;
@@ -21,7 +21,7 @@ class Reference
     }
 
     // Constructor for object with two verses 
-    public Reference (string book, string chapter, string verse, string endVerse)
+    public Reference (string book, int chapter, int verse, int endVerse)
     {
         _book = book;
         _chapter = chapter;
