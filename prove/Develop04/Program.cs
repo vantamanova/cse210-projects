@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop04 World000000!");
+        // Menu
 
         Console.WriteLine("Menu Options:");
         Console.WriteLine("1. Start breathing activity");
@@ -13,12 +13,9 @@ class Program
         Console.WriteLine("Quit");
         Console.WriteLine("Select a choice from the menu: ");
 
-        // testing functions:
-        Activity activity = new Activity("Boo", "Booooooo", 20);
-        activity.DisplayStartingMesssage();
-        activity.DisplayEndingingMesssage();
-        activity.SpinnerPause();
-        activity.TimerPause();
+        // testing classes BreathingActivity:
+        BreathingActivity activity2 = new BreathingActivity();
+        activity2.RunBreathingActivity();
 
 
 
