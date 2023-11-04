@@ -38,16 +38,23 @@ public class ReflectingActivity : Activity {
         // a spinner, a countdown timer, or periods being displayed to the screen.
         SpinnerPause();
         // Prompt
-        GetPrompt();
-        SpinnerPause();
-
-        // Questions
         Console.WriteLine();
-        Console.WriteLine("Reflect on questions that relate to this experience.");
-
+        Console.WriteLine("Consider the following prompt:");
+        Console.WriteLine();
+        Console.WriteLine($" --- {GetPrompt()} --- ");
+        Console.WriteLine();
+        Console.WriteLine("When you have something in mind, press enter to continue.");
+        Console.ReadLine();
+        Console.WriteLine("Now ponder on each of the following questions as they related to this experience.");
+        Console.Write("You may begin in: ");
+        TimerPause();
+        // Questions
+        Console.Clear();
+        Console.WriteLine();
         GetQuestions();
 
         // Each activity should end with a common ending message that tells the user they have done a good job,
+        Console.WriteLine();
         Console.WriteLine("Good Job!");
         // and pause
         // a spinner, a countdown timer, or periods being displayed to the screen.
@@ -55,15 +62,15 @@ public class ReflectingActivity : Activity {
         // and then tell them the activity they have completed and the length of time
         DisplayEndingingMesssage();
         // and pauses for several seconds before finishing
-        Thread.Sleep(2000);
+        SpinnerPause();
 
     }
 
-    private static void GetPrompt() {
+    private static string GetPrompt() {
         Random rnd = new Random();
         int numb = rnd.Next(0, _promptList.Count);
     
-        Console.WriteLine(_promptList[numb]);
+        return _promptList[numb];
     }
 
     private static void GetQuestions() {
@@ -73,9 +80,9 @@ public class ReflectingActivity : Activity {
 
         foreach (string question in _questionsList) {
             if (DateTime.Now < endTime) {
+                Console.Write($"> {question} ");
+                SpinnerPause();
                 Console.WriteLine();
-                Console.WriteLine(question);
-            SpinnerPause();
             }
             else break; 
         }

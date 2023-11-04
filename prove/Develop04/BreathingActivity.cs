@@ -15,14 +15,16 @@ public class BreathingActivity : Activity {
         DisplayStartingMesssage();
 
         // Then, it should tell the user to prepare to begin and pause for several seconds.
+        Console.Clear();
         Console.WriteLine("Get Ready...");
         // a spinner, a countdown timer, or periods being displayed to the screen.
         SpinnerPause();
-        Console.Clear();
+        
         // Breathig part
         Breath();
         
         // Each activity should end with a common ending message that tells the user they have done a good job,
+        Console.WriteLine();
         Console.WriteLine("Good Job!");
         // and pause
         // a spinner, a countdown timer, or periods being displayed to the screen.
@@ -30,7 +32,7 @@ public class BreathingActivity : Activity {
         // and then tell them the activity they have completed and the length of time
         DisplayEndingingMesssage();
         // and pauses for several seconds before finishing
-        Thread.Sleep(2000);
+        SpinnerPause();
     }
 
 public static void Breath() {
@@ -38,12 +40,12 @@ public static void Breath() {
         DateTime endTime = startTime.AddSeconds(_duration);
 
         while (DateTime.Now < endTime) {
+            Console.WriteLine();
             Console.Write("Breath in...");
             TimerPause();
             Console.WriteLine();
             Console.Write("Breath out...");
             TimerPause();
-            Console.WriteLine();
             Console.WriteLine();
         }
 }

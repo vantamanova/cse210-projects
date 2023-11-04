@@ -35,6 +35,7 @@ public class Activity {
 
     // Displaying the ending message
     public void DisplayEndingingMesssage() {
+        Console.WriteLine();
         Console.WriteLine($"You have completed another {_duration} seconds of the {_activityName}.");
     }
     // Pausing while showing a spinner
@@ -44,10 +45,9 @@ public class Activity {
             Thread.Sleep(1000);
             Console.Write("\b \b");
         }
-        
     }
 
-    // Pausing while showing a countdown timer
+    // Pausing while showing a countdown timer (Should be able to change number of seconds)
     public static void TimerPause() {
         Console.Write("5");
         Thread.Sleep(1000);

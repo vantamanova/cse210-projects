@@ -1,5 +1,10 @@
 using System;
 
+/// <summary>
+/// The following was done to exceed requirements:
+/// 
+/// </summary>
+
 class Program
 {
     static void Main(string[] args)
@@ -8,12 +13,13 @@ class Program
         int answer = -1;
 
         while (answer != 4) {
+            Console.Clear();
             Console.WriteLine("Menu Options:");
-            Console.WriteLine("1. Start breathing activity");
-            Console.WriteLine("2. Start reflecting activity");
-            Console.WriteLine("3. Start listing activity");
-            Console.WriteLine("4. Quit");
-            Console.WriteLine("Select a choice from the menu: ");
+            Console.WriteLine("     1. Start breathing activity");
+            Console.WriteLine("     2. Start reflecting activity");
+            Console.WriteLine("     3. Start listing activity");
+            Console.WriteLine("     4. Quit");
+            Console.Write("Select a choice from the menu: ");
             answer = int.Parse(Console.ReadLine());
 
             if (answer == 1) {
@@ -28,10 +34,11 @@ class Program
             }
             if (answer == 3) {
                 Console.Clear();
-                Console.WriteLine();
+                ListingActivity activity4 = new ListingActivity();
+                activity4.RunListingActivity();
             }
 
-            Console.Clear();
+            //Console.Clear();
         }
 
         
