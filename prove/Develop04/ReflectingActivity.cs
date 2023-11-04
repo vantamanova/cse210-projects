@@ -33,10 +33,8 @@ public class ReflectingActivity : Activity {
         // a description, and asks for and sets the duration of the activity in seconds.
         DisplayStartingMesssage();
         // Then, it should tell the user to prepare to begin and pause for several seconds.
-        Console.Clear();
-        Console.WriteLine("Get Ready...");
         // a spinner, a countdown timer, or periods being displayed to the screen.
-        SpinnerPause();
+        GetReady();
         // Prompt
         Console.WriteLine();
         Console.WriteLine("Consider the following prompt:");
@@ -47,22 +45,19 @@ public class ReflectingActivity : Activity {
         Console.ReadLine();
         Console.WriteLine("Now ponder on each of the following questions as they related to this experience.");
         Console.Write("You may begin in: ");
-        TimerPause();
+        TimerPause(9);
         // Questions
         Console.Clear();
         Console.WriteLine();
         GetQuestions();
 
         // Each activity should end with a common ending message that tells the user they have done a good job,
-        Console.WriteLine();
-        Console.WriteLine("Good Job!");
         // and pause
         // a spinner, a countdown timer, or periods being displayed to the screen.
-        SpinnerPause();
+        WellDone();
         // and then tell them the activity they have completed and the length of time
-        DisplayEndingingMesssage();
         // and pauses for several seconds before finishing
-        SpinnerPause();
+        DisplayEndingingMesssage();
 
     }
 
@@ -86,9 +81,5 @@ public class ReflectingActivity : Activity {
             }
             else break; 
         }
-
     }
-
-    
-
 }

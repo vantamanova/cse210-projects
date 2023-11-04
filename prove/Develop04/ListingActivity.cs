@@ -24,27 +24,24 @@ public class ListingActivity : Activity {
         // a description, and asks for and sets the duration of the activity in seconds.
         DisplayStartingMesssage();
         // Then, it should tell the user to prepare to begin and pause for several seconds.
-        Console.Clear();
-        Console.WriteLine("Get Ready...");
         // a spinner, a countdown timer, or periods being displayed to the screen.
-        SpinnerPause();
+        GetReady();
         // Prompt
         Console.WriteLine("List as many reasponses you can to the following prompt:");
         Console.WriteLine($" --- {GetPrompt()} --- ");
         Console.Write("You may start in: ");
-        TimerPause();
+        TimerPause(9);
         Console.WriteLine();
-        //Running the activity
+
+        // Listing part
         Listing();
         // Each activity should end with a common ending message that tells the user they have done a good job,
-        Console.WriteLine("Good Job!");
         // and pause
         // a spinner, a countdown timer, or periods being displayed to the screen.
-        SpinnerPause();
+        WellDone();
         // and then tell them the activity they have completed and the length of time
-        DisplayEndingingMesssage();
         // and pauses for several seconds before finishing
-        SpinnerPause();
+        DisplayEndingingMesssage();
 
     }
 
