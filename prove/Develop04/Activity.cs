@@ -2,8 +2,8 @@ public class Activity {
     // define attributes
     protected string _activityName;
     protected string _description;
-    protected int _duration;
-    private List<string> _animationStrings = new List<string>();
+    protected static int _duration;
+    private static List<string> _animationStrings = new List<string>();
 
 
     public Activity () {
@@ -31,7 +31,6 @@ public class Activity {
         // and asks for and sets the duration of the activity in seconds.
         Console.Write("How long, in seconds, would you like for your session? ");
         _duration = int.Parse(Console.ReadLine());
-        Console.WriteLine(_duration);
     }
 
     // Displaying the ending message
@@ -39,7 +38,7 @@ public class Activity {
         Console.WriteLine($"You have completed another {_duration} seconds of the {_activityName}.");
     }
     // Pausing while showing a spinner
-    public void SpinnerPause() {
+    public static void SpinnerPause() {
         foreach (string s in _animationStrings) {
             Console.Write(s);
             Thread.Sleep(1000);
@@ -49,10 +48,24 @@ public class Activity {
     }
 
     // Pausing while showing a countdown timer
-    public void TimerPause() {
-        Console.WriteLine("Going to sleep for a second...");
-        Thread.Sleep(2000);
-        Console.WriteLine("I'm back!!");
+    public static void TimerPause() {
+        Console.Write("5");
+        Thread.Sleep(1000);
+        Console.Write("\b \b");
+        Console.Write("4");
+        Thread.Sleep(1000);
+        Console.Write("\b \b");
+        Console.Write("3");
+        Thread.Sleep(1000);
+        Console.Write("\b \b");
+        Console.Write("2");
+        Thread.Sleep(1000);
+        Console.Write("\b \b");
+        Console.Write("1");
+        Thread.Sleep(1000);
+        Console.Write("\b \b");
+        Console.Write("0");
+        Console.Write("\b \b");
     }
 
     // Constructor for Activity Class
