@@ -2,8 +2,7 @@ using System;
 
 /// <summary>
 /// The following was done to exceed requirements:
-/// - Handled the wrong input in menu (program.cs)
-/// - Added another kind of activity.
+/// - Added another kind of activity (Reading Activity)
 /// </summary>
 
 class Program

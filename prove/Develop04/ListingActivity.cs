@@ -45,7 +45,7 @@ public class ListingActivity : Activity {
 
     }
 
-    // Should I put it into the Activity Class?
+    
     private static string GetPrompt() {
         Random rnd = new Random();
         int numb = rnd.Next(0, _promptList.Count);
