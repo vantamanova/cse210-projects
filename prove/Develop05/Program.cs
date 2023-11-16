@@ -94,7 +94,34 @@ class Program
 
             }
             if (option == 4) {
-                break;
+                Console.Write("What is the name of the file? ");
+                string fileName = Console.ReadLine();
+                string[] lines = System.IO.File.ReadAllLines(fileName);
+                lines = lines.Skip(1).ToArray();
+
+                foreach (string line in lines)
+                {
+                    string[] parts = line.Split(" | ");
+
+                    if (parts[0] == "SimpleGoal:") {
+                        SimpleGoal newGoal = new SimpleGoal();
+                        newGoal.LoadGoals(line); // repitation!!!!
+                        myGoals.Add(newGoal);
+                    }
+                    if (parts[0] == "EternalGoal:") {
+                        EternalGoal newGoal = new EternalGoal();
+                        newGoal.LoadGoals(line);
+                        myGoals.Add(newGoal);
+                    }
+                    if (parts[0] == "ChecklistGoal:") {
+                        ChecklistGoal newGoal = new ChecklistGoal();
+                        newGoal.LoadGoals(line);
+                        myGoals.Add(newGoal);
+                    }
+                    
+                }
+                Console.WriteLine("The file has been downloaded.");
+                
             }
             if (option == 5) {
                 Console.WriteLine("The goals are: ");

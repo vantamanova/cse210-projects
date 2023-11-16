@@ -12,6 +12,7 @@ public class ChecklistGoal : Goal {
         _plan = plan;
         _result = 0;
     }
+    public ChecklistGoal() {}
     // Behaviors
    
     // Completes a goal. Incharge of checking if the the Goal is complete. Returnes the points
@@ -44,8 +45,21 @@ public class ChecklistGoal : Goal {
     public override string SaveGoals() {
         return ($"ChecklistGoal: | {_name} | {_discription} | {_value} | {_bonusAmound} | {_plan} | {_result}"); // Shoul change the line
     }
-    public override void LoadGoals() {
-        Console.WriteLine();
+    public override void LoadGoals(string line) {
+        string[] parts = line.Split(" | ");
+        _name = parts[1];
+        _discription = parts[2];
+        _value = int.Parse(parts[3]);
+        _bonusAmound = int.Parse(parts[4]);
+        _plan = int.Parse(parts[5]);
+        _result = int.Parse(parts[6]);
+
+        if (_plan == _result) {
+            _isComplete = true;
+        }
+        else {
+            _isComplete = false;
+        }
     }
     
 }

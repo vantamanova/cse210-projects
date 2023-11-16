@@ -1,4 +1,7 @@
-620
-SimpleGoal: | Goal1 | something here | 20 | False
-SimpleGoal: | Goal2 | Something eles | 30
-SimpleGoal: | Goal3 | New text | 40 | 500 | 3 | 3
+0
+SimpleGoal: | Goal1 | something  | 20 | False
+EternalGoal: | Goal2 | Something elese here | 30
+ChecklistGoal: | Goal3 | New discription | 40 | 500 | 4 | 0
+SimpleGoal: | Goal4 | Simple goal | 50 | False
+EternalGoal: | Goal5 | Eternal goal | 50
+ChecklistGoal: | Goal6 | New Checklist goal | 50 | 1000 | 5 | 0

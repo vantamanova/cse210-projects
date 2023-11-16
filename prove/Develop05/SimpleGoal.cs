@@ -5,6 +5,8 @@ public class SimpleGoal : Goal {
     public SimpleGoal(string name, string discription, int value) : base(name, discription, value) {
         _isComplete = false;
     }
+    public SimpleGoal() {}
+
     // Behaviors
    // Completes the goal. Incharge of checking if the the Goal is complete. Returnes the points
     public override int RecordEvent() {
@@ -30,11 +32,22 @@ public class SimpleGoal : Goal {
     
     // Returnes the string to save the goal. (Should change the name)
     public override string SaveGoals() {
-        //string line = ($"SimpleGoal: | {_name} | {_discription} | {_value} | {_isComplete}");
         return ($"SimpleGoal: | {_name} | {_discription} | {_value} | {_isComplete}");
     }
-    public override void LoadGoals() {
-        Console.WriteLine();
+    
+    // Load information from the file
+    public override void LoadGoals(string line) {
+        string[] parts = line.Split(" | ");
+        _name = parts[1];
+        _discription = parts[2];
+        _value = int.Parse(parts[3]);
+
+        if (parts[4] == "False") {
+            _isComplete = false;
+        }
+        if (parts[4] == "True") {
+            _isComplete = true;
+        }
     }
     
 }

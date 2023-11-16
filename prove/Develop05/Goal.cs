@@ -11,6 +11,9 @@ public abstract class Goal {
         _discription = discription;
         _value = value;
     }
+    public Goal(){
+
+    }
 
     // Behaviors
     public abstract int RecordEvent();
@@ -18,7 +21,7 @@ public abstract class Goal {
     //public static abstract bool IsComplete(); 
     public abstract void DisplayGoal();
     public abstract string SaveGoals();
-    public abstract void LoadGoals();
+    public abstract void LoadGoals(string line);
     public void DisplayScore() {
         Console.WriteLine("Score");
     }
