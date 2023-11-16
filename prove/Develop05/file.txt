@@ -1,0 +1,4 @@
+620
+SimpleGoal: | Goal1 | something here | 20 | False
+SimpleGoal: | Goal2 | Something eles | 30
+SimpleGoal: | Goal3 | New text | 40 | 500 | 3 | 3

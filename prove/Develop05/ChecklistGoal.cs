@@ -41,8 +41,8 @@ public class ChecklistGoal : Goal {
     public override void DisplayGoal() {
         Console.WriteLine($"{IsComplete()} {_name} ({_discription}) -- Currently completed: {_result}/{_plan}");
     }
-    public override void SaveGoals() {
-        Console.WriteLine();
+    public override string SaveGoals() {
+        return ($"ChecklistGoal: | {_name} | {_discription} | {_value} | {_bonusAmound} | {_plan} | {_result}"); // Shoul change the line
     }
     public override void LoadGoals() {
         Console.WriteLine();

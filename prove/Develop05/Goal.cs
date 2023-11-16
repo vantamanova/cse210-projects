@@ -17,7 +17,7 @@ public abstract class Goal {
     // How does static method shoul work in parent class?
     //public static abstract bool IsComplete(); 
     public abstract void DisplayGoal();
-    public abstract void SaveGoals();
+    public abstract string SaveGoals();
     public abstract void LoadGoals();
     public void DisplayScore() {
         Console.WriteLine("Score");

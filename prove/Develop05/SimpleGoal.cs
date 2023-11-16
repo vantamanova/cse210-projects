@@ -27,8 +27,11 @@ public class SimpleGoal : Goal {
     public override void DisplayGoal() {
         Console.WriteLine($"{IsComplete()} {_name} ({_discription})");
     }
-    public override void SaveGoals() {
-        Console.WriteLine();
+    
+    // Returnes the string to save the goal. (Should change the name)
+    public override string SaveGoals() {
+        //string line = ($"SimpleGoal: | {_name} | {_discription} | {_value} | {_isComplete}");
+        return ($"SimpleGoal: | {_name} | {_discription} | {_value} | {_isComplete}");
     }
     public override void LoadGoals() {
         Console.WriteLine();

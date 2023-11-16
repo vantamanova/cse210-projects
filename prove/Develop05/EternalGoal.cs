@@ -3,7 +3,7 @@ public class EternalGoal : Goal {
     // Constructors
     public EternalGoal(string name, string discription, int value) : base(name, discription, value) {   
     }
-    
+
     // Behaviors
     // Completes the goal. Returnes the points
     public override int RecordEvent() {
@@ -15,8 +15,10 @@ public class EternalGoal : Goal {
     public override void DisplayGoal() {
         Console.WriteLine($"[ ] {_name} ({_discription})");
     }
-    public override void SaveGoals() {
-        Console.WriteLine();
+    
+    // Returnes the string to save the goal. (Should change the name)
+    public override string SaveGoals() {
+        return ($"EternalGoal: | {_name} | {_discription} | {_value}");
     }
     public override void LoadGoals() {
         Console.WriteLine();

@@ -5,9 +5,11 @@ class Program
     static void Main(string[] args)
     {
         List<Goal> myGoals = new List<Goal>();
+        int score = 0;
+
         while (true) {
             // Showing the menu
-            Console.WriteLine("You have 0 points");
+            Console.WriteLine($"You have {score} points");
             Console.WriteLine();
             Console.WriteLine("Menu option:");
             Console.WriteLine("     1. Create New Goal");
@@ -77,7 +79,19 @@ class Program
                 }
             }
             if (option == 3) {
-                break;
+                // Getting the filename from the user
+                Console.Write("Enter the name of the file: ");
+                string fileName = Console.ReadLine();
+
+                using (StreamWriter outputFile = new StreamWriter(fileName, false))
+                {
+                    outputFile.WriteLine(score);
+                    foreach (Goal goal in myGoals) {
+                        outputFile.WriteLine(goal.SaveGoals());
+                    }
+                }
+                Console.WriteLine("The file has been saved.");
+
             }
             if (option == 4) {
                 break;
@@ -92,7 +106,7 @@ class Program
                 }
                 Console.Write("Which goal did you accomplish? ");
                 int goalNum = int.Parse(Console.ReadLine()); 
-                Console.WriteLine(myGoals[goalNum-1].RecordEvent());
+                score += myGoals[goalNum-1].RecordEvent();
             }
             if (option == 6) {
                 break;
