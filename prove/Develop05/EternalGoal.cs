@@ -1,14 +1,14 @@
 public class EternalGoal : Goal {
     // Attributes
     // Constructors
-    public EternalGoal(string name, string discription, int value) : base(name, discription, value) {
-        
+    public EternalGoal(string name, string discription, int value) : base(name, discription, value) {   
     }
+    
     // Behaviors
-    // Not done yet
+    // Completes the goal. Returnes the points
     public override int RecordEvent() {
-        Console.WriteLine();
-        return 4;
+        Console.WriteLine($"Congratulations! You have earned {_value} points");
+        return _value;
     }
    
     // Displays the Goal

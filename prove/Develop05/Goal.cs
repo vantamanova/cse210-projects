@@ -11,14 +11,19 @@ public abstract class Goal {
         _discription = discription;
         _value = value;
     }
+
     // Behaviors
     public abstract int RecordEvent();
-    //public static abstract bool IsComplete();
+    // How does static method shoul work in parent class?
+    //public static abstract bool IsComplete(); 
     public abstract void DisplayGoal();
     public abstract void SaveGoals();
     public abstract void LoadGoals();
     public void DisplayScore() {
         Console.WriteLine("Score");
+    }
+    public string GetName() {
+        return _name;
     }
     
 

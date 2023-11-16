@@ -14,10 +14,17 @@ public class ChecklistGoal : Goal {
     }
     // Behaviors
    
-    // Not done
+    // Completes a goal. Incharge of checking if the the Goal is complete. Returnes the points
     public override int RecordEvent() {
-        Console.WriteLine();
-        return 4;
+        Console.WriteLine($"Congratulations! You have earned {_value} points");
+        _result += 1;
+    
+        if (_result == _plan) {
+            _isComplete = true;
+            Console.WriteLine($"The bonus amound is {_bonusAmound}.");
+            return (_value + _bonusAmound);
+        }
+        else return _value;
     }
     
     // Returnes the string for display method. Same come in two places.
@@ -32,7 +39,7 @@ public class ChecklistGoal : Goal {
     }
     // Displays the goal. Done
     public override void DisplayGoal() {
-        Console.WriteLine($"{IsComplete()} {_name} ({_discription}) - Currently Completed {_result}/{_plan}");
+        Console.WriteLine($"{IsComplete()} {_name} ({_discription}) -- Currently completed: {_result}/{_plan}");
     }
     public override void SaveGoals() {
         Console.WriteLine();

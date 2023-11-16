@@ -6,10 +6,11 @@ public class SimpleGoal : Goal {
         _isComplete = false;
     }
     // Behaviors
-   // Not done
+   // Completes the goal. Incharge of checking if the the Goal is complete. Returnes the points
     public override int RecordEvent() {
-        Console.WriteLine();
-        return 4;
+        Console.WriteLine($"Congratulations! You have earned {_value} points");
+        _isComplete = true;
+        return _value;
     }
 
     // Returnes the string according to _isComplete. Same code in two places
@@ -19,8 +20,7 @@ public class SimpleGoal : Goal {
         }
         else {
             return "[ ]";
-        }
-        
+        }  
     }
     
     // Displays the Goal. Done

@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        //int option = -1;
+        List<Goal> myGoals = new List<Goal>();
         while (true) {
             // Showing the menu
             Console.WriteLine("You have 0 points");
@@ -36,34 +36,45 @@ class Program
                 string description = Console.ReadLine();
                 
 
-                Console.Write("What is amound of points? ");
+                Console.Write("What is the amound of points associated with this goal? ");
                 int value = int.Parse(Console.ReadLine());
                 
 
                 if (goalType == 1) {
-                    SimpleGoal newgoal = new SimpleGoal(name, description, value);
+                    SimpleGoal newGoal = new SimpleGoal(name, description, value);
                     // Checking display
-                    newgoal.DisplayGoal();
+                    newGoal.DisplayGoal();
+                    myGoals.Add(newGoal);
                 }
                 if (goalType == 2) {
-                    EternalGoal newgoal = new EternalGoal(name, description, value);
+                    EternalGoal newGoal = new EternalGoal(name, description, value);
                     // Checking display
-                    newgoal.DisplayGoal();
+                    newGoal.DisplayGoal();
+                    myGoals.Add(newGoal);
                 }
                 if (goalType == 3) {
-                    Console.Write("What is a bonus amound? ");
+                    Console.Write("How many times does this goal need to be accomplished for a bonus? ");
+                    int plan = int.Parse(Console.ReadLine());
+
+                    Console.Write("What is the bonus for accomplishing it that many times? ");
                     int bonus = int.Parse(Console.ReadLine());
 
-                    Console.Write("What is a plan amound? ");
-                    int plan = int.Parse(Console.ReadLine());
-                    ChecklistGoal newgoal = new ChecklistGoal(name, description, value, bonus, plan);
+                    ChecklistGoal newGoal = new ChecklistGoal(name, description, value, bonus, plan);
                     // Checking display
-                    newgoal.DisplayGoal();
+                    newGoal.DisplayGoal();
+                    myGoals.Add(newGoal);
                 }
+                
                 
             }
             if (option == 2) {
-                break;
+                // Displaying goals using loop
+                int i = 1;
+                foreach (Goal goal in myGoals) {
+                    Console.Write($"{i}.");
+                    goal.DisplayGoal();
+                    i += 1;
+                }
             }
             if (option == 3) {
                 break;
@@ -72,7 +83,16 @@ class Program
                 break;
             }
             if (option == 5) {
-                break;
+                Console.WriteLine("The goals are: ");
+                int i = 1;
+                foreach (Goal goal in myGoals) {
+                    Console.Write($"{i}. ");
+                    Console.WriteLine(goal.GetName());
+                    i += 1;
+                }
+                Console.Write("Which goal did you accomplish? ");
+                int goalNum = int.Parse(Console.ReadLine()); 
+                Console.WriteLine(myGoals[goalNum-1].RecordEvent());
             }
             if (option == 6) {
                 break;
