@@ -1,6 +1,6 @@
 public class ChecklistGoal : Goal {
     // Attributes
-    private static bool _isComplete;
+    private bool _isComplete; // Can't be static
     private int _plan;
     private int _result;
     private int _bonusAmound;
@@ -15,7 +15,7 @@ public class ChecklistGoal : Goal {
     public ChecklistGoal() {}
     // Behaviors
    
-    // Completes a goal. Incharge of checking if the the Goal is complete. Returnes the points
+    // Completes a goal. In charge of checking if the the Goal is complete. Returns the points
     public override int RecordEvent() {
         Console.WriteLine($"Congratulations! You have earned {_value} points");
         _result += 1;
@@ -28,9 +28,9 @@ public class ChecklistGoal : Goal {
         else return _value;
     }
     
-    // Returnes the string for display method. Same come in two places.
-    public static string IsComplete() {
-        if (_isComplete == true) {
+    // Returns the string for display method. Same come in two places.
+    public static string IsComplete(bool isComplete) {
+        if (isComplete == true) {
             return "[X]";
         }
         else {
@@ -40,7 +40,7 @@ public class ChecklistGoal : Goal {
     }
     // Displays the goal. Done
     public override void DisplayGoal() {
-        Console.WriteLine($"{IsComplete()} {_name} ({_discription}) -- Currently completed: {_result}/{_plan}");
+        Console.WriteLine($"{IsComplete(_isComplete)} {_name} ({_discription}) -- Currently completed: {_result}/{_plan}");
     }
     public override string SaveGoals() {
         return ($"ChecklistGoal: | {_name} | {_discription} | {_value} | {_bonusAmound} | {_plan} | {_result}"); // Shoul change the line

@@ -6,7 +6,7 @@ public class EternalGoal : Goal {
     public EternalGoal() {}
 
     // Behaviors
-    // Completes the goal. Returnes the points
+    // Completes the goal. Returns the points
     public override int RecordEvent() {
         Console.WriteLine($"Congratulations! You have earned {_value} points");
         return _value;
@@ -17,7 +17,7 @@ public class EternalGoal : Goal {
         Console.WriteLine($"[ ] {_name} ({_discription})");
     }
     
-    // Returnes the string to save the goal. (Should change the name)
+    // Returns the string to save the goal. (Should change the name)
     public override string SaveGoals() {
         return ($"EternalGoal: | {_name} | {_discription} | {_value}");
     }

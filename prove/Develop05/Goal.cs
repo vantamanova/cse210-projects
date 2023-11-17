@@ -17,7 +17,7 @@ public abstract class Goal {
 
     // Behaviors
     public abstract int RecordEvent();
-    // How does static method shoul work in parent class?
+    // How does static method work in parent class?
     //public static abstract bool IsComplete(); 
     public abstract void DisplayGoal();
     public abstract string SaveGoals();
