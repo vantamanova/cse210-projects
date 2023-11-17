@@ -26,6 +26,7 @@ public class Menu {
         Console.WriteLine("     1. Simple Goal");
         Console.WriteLine("     2. Eternal Goal");
         Console.WriteLine("     3. Checklist Goal");
+        Console.WriteLine("     4. Negative Goal");
 
         Console.Write("Which type of goal would you like to create? ");
         int goalType = int.Parse(Console.ReadLine());
@@ -52,18 +53,22 @@ public class Menu {
             EternalGoal newGoal = new EternalGoal(name, description, value);
             return newGoal;
         }
-        else {
+        if (goalType == 3) {
             Console.Write("How many times does this goal need to be accomplished for a bonus? ");
             int plan = int.Parse(Console.ReadLine());
 
             Console.Write("What is the bonus for accomplishing it that many times? ");
             int bonus = int.Parse(Console.ReadLine());
             ChecklistGoal newGoal = new ChecklistGoal(name, description, value, bonus, plan);
+            return newGoal; 
+        }
+        else {
+            NegativeGoal newGoal = new NegativeGoal(name, description, value);
             return newGoal;
-            
         }
     }
 
+    // 2. Displays all goals
     public void ShowGoals(List<Goal> myGoals) {
         int i = 1;
         foreach (Goal goal in myGoals) {
@@ -73,6 +78,7 @@ public class Menu {
         }
     }
 
+    // 3. Saves all goalt to .txt file
     public void SaveGoalsTxt(List<Goal> myGoals, int score) {
         Console.Write("Enter the name of the file: ");
         string fileName = Console.ReadLine();
@@ -86,6 +92,7 @@ public class Menu {
         }
     }
 
+    // 4. Loads all goals and the total score from .txt file
     public List<Goal> LoadGoalsTxt() {
         List<Goal> myGoals = new List<Goal>();
 
@@ -113,16 +120,23 @@ public class Menu {
                 ChecklistGoal newGoal = new ChecklistGoal();
                 newGoal.LoadGoals(line);
                 myGoals.Add(newGoal);
-            }         
+            }  
+            if (parts[0] == "NegativeGoal:") {
+                NegativeGoal newGoal = new NegativeGoal();
+                newGoal.LoadGoals(line);
+                myGoals.Add(newGoal);
+            }       
         }
 
         return myGoals;
     }
 
+    // Returnes total score after loading it from the file (might be a better way to do it)
     public int GetScore() {
         return _score;
     }
 
+    // 5. Prints the list of goals and completes the goal which user picks
     public int AccomplishGoal(List<Goal> myGoals, int score) {
         Console.WriteLine("The goals are: ");
         int i = 1;
