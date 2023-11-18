@@ -1,8 +1,6 @@
-50
-SimpleGoal: | Goal1 | something  | 20 | True
-EternalGoal: | Goal2 | Something elese here | 30
-ChecklistGoal: | Goal3 | New discription | 40 | 500 | 4 | 0
-SimpleGoal: | Goal4 | Simple goal | 50 | True
-EternalGoal: | Goal5 | Eternal goal | 50
-ChecklistGoal: | Goal6 | New Checklist goal | 50 | 1000 | 5 | 0
-SimpleGoal: | Goal7 | One more Simple Goal | 60 | True
+0
+SimpleGoal:Goal1 | Simple Goal | 20 | False
+EternalGoal:Goal2 | Eternal Goal | 30
+ChecklistGoal:Goal3 | Checklist Goal | 40 | 500 | 3 | 0
+EternalGoal:Goal4 | Negative Goal | 50
+NegativeGoal:Goal5 | Really negative goal | 50

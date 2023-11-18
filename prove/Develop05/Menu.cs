@@ -5,15 +5,18 @@ public class Menu {
     // Behaviors
     // Prints options for the main program menu and returns what option the user picked
     public int ShowMainMenu() {
-        Console.WriteLine();
-        Console.WriteLine("Menu option:");
-        Console.WriteLine("     1. Create New Goal");
-        Console.WriteLine("     2. List goals");
-        Console.WriteLine("     3. Save Goals");
-        Console.WriteLine("     4. Load Goals");
-        Console.WriteLine("     5. Record Event");
-        Console.WriteLine("     6. Quit");
+        List<string> menu = new List<string> {
+            "Menu option:",
+            "     1. Create New Goal",
+            "     2. List goals",
+            "     3. Save Goals",
+            "     4. Load Goals",
+            "     5. Record Event",
+            "     6. Quit",
+        };
 
+        WriteMultiLine(menu);
+        
         Console.Write("Select a choice from menu: ");
         int option = int.Parse(Console.ReadLine());
 
@@ -22,11 +25,15 @@ public class Menu {
 
     // 1. Prints types of goals user can create. Returns the goal type
     public int ShowGoalTypes() {
-        Console.WriteLine("The types of goals are: ");
-        Console.WriteLine("     1. Simple Goal");
-        Console.WriteLine("     2. Eternal Goal");
-        Console.WriteLine("     3. Checklist Goal");
-        Console.WriteLine("     4. Negative Goal");
+        List<string> goalTypes = new List<string> {
+            "The types of goals are: ",
+            "     1. Simple Goal",
+            "     2. Eternal Goal",
+            "     3. Checklist Goal",
+            "     4. Negative Goal",
+        };
+        
+        WriteMultiLine(goalTypes);
 
         Console.Write("Which type of goal would you like to create? ");
         int goalType = int.Parse(Console.ReadLine());
@@ -71,6 +78,7 @@ public class Menu {
     // 2. Displays all goals
     public void ShowGoals(List<Goal> myGoals) {
         int i = 1;
+        Console.WriteLine("The goals are: ");
         foreach (Goal goal in myGoals) {
             Console.Write($"{i}.");
             goal.DisplayGoal();
@@ -87,7 +95,7 @@ public class Menu {
         {
             outputFile.WriteLine(score);
             foreach (Goal goal in myGoals) {
-                outputFile.WriteLine(goal.SaveGoals());
+                outputFile.WriteLine(goal.GetStringRepresentation());
             }
         }
     }
@@ -104,26 +112,26 @@ public class Menu {
 
         foreach (string line in lines)
         {
-            string[] parts = line.Split(" | ");
+            string[] parts = line.Split(":");
 
-            if (parts[0] == "SimpleGoal:") {
+            if (parts[0] == "SimpleGoal") {
                 SimpleGoal newGoal = new SimpleGoal();
-                newGoal.LoadGoals(line);
+                newGoal.LoadGoals(parts[1]);
                 myGoals.Add(newGoal);
             }
-            if (parts[0] == "EternalGoal:") {
+            if (parts[0] == "EternalGoal") {
                 EternalGoal newGoal = new EternalGoal();
-                newGoal.LoadGoals(line);
+                newGoal.LoadGoals(parts[1]);
                 myGoals.Add(newGoal);
             }
-            if (parts[0] == "ChecklistGoal:") {
+            if (parts[0] == "ChecklistGoal") {
                 ChecklistGoal newGoal = new ChecklistGoal();
-                newGoal.LoadGoals(line);
+                newGoal.LoadGoals(parts[1]);
                 myGoals.Add(newGoal);
             }  
-            if (parts[0] == "NegativeGoal:") {
+            if (parts[0] == "NegativeGoal") {
                 NegativeGoal newGoal = new NegativeGoal();
-                newGoal.LoadGoals(line);
+                newGoal.LoadGoals(parts[1]);
                 myGoals.Add(newGoal);
             }       
         }
@@ -150,7 +158,15 @@ public class Menu {
         int index = goalNum - 1;
         Console.WriteLine(index);
         score += myGoals[goalNum-1].RecordEvent();
+        Console.WriteLine($"You now have {score} points!");
         
         return score;
+    }
+
+    private static void WriteMultiLine(List<string> myList) {
+        foreach (var line in myList)
+        {
+            Console.WriteLine(line);
+        }
     }
 }

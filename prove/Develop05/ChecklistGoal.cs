@@ -38,21 +38,22 @@ public class ChecklistGoal : Goal {
         }
         
     }
-    // Displays the goal. Done
+    // Displays the goal.
     public override void DisplayGoal() {
-        Console.WriteLine($"{IsComplete(_isComplete)} {_name} ({_discription}) -- Currently completed: {_result}/{_plan}");
+        Console.WriteLine($" {IsComplete(_isComplete)} {_name} ({_discription}) -- Currently completed: {_result}/{_plan}");
     }
-    public override string SaveGoals() {
-        return ($"ChecklistGoal: | {_name} | {_discription} | {_value} | {_bonusAmound} | {_plan} | {_result}"); // Shoul change the line
+    
+    public override string GetStringRepresentation() {
+        return ($"ChecklistGoal:{_name} | {_discription} | {_value} | {_bonusAmound} | {_plan} | {_result}");
     }
     public override void LoadGoals(string line) {
         string[] parts = line.Split(" | ");
-        _name = parts[1];
-        _discription = parts[2];
-        _value = int.Parse(parts[3]);
-        _bonusAmound = int.Parse(parts[4]);
-        _plan = int.Parse(parts[5]);
-        _result = int.Parse(parts[6]);
+        _name = parts[0];
+        _discription = parts[1];
+        _value = int.Parse(parts[2]);
+        _bonusAmound = int.Parse(parts[3]);
+        _plan = int.Parse(parts[4]);
+        _result = int.Parse(parts[5]);
 
         if (_plan == _result) {
             _isComplete = true;

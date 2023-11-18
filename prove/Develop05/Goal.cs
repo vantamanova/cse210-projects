@@ -11,14 +11,13 @@ public abstract class Goal {
         _discription = discription;
         _value = value;
     }
-    public Goal(){
-
-    }
+    public Goal(){}
+    
 
     // Behaviors
     public abstract int RecordEvent();
     public abstract void DisplayGoal();
-    public abstract string SaveGoals();
+    public abstract string GetStringRepresentation();
     public abstract void LoadGoals(string line);
     public string GetName() {
         return _name;

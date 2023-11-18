@@ -25,27 +25,27 @@ public class SimpleGoal : Goal {
         }  
     }
     
-    // Displays the Goal. Done
+    // Displays the Goal.
     public override void DisplayGoal() {
-        Console.WriteLine($"{IsComplete(_isComplete)} {_name} ({_discription})");
+        Console.WriteLine($" {IsComplete(_isComplete)} {_name} ({_discription})");
     }
     
-    // Returns the string to save the goal. (Should change the name)
-    public override string SaveGoals() {
-        return ($"SimpleGoal: | {_name} | {_discription} | {_value} | {_isComplete}");
+    // Returns the string to save the goal. 
+    public override string GetStringRepresentation() { 
+        return ($"SimpleGoal:{_name} | {_discription} | {_value} | {_isComplete}");
     }
     
     // Loads information from the file
     public override void LoadGoals(string line) {
         string[] parts = line.Split(" | ");
-        _name = parts[1];
-        _discription = parts[2];
-        _value = int.Parse(parts[3]);
+        _name = parts[0];
+        _discription = parts[1];
+        _value = int.Parse(parts[2]);
 
-        if (parts[4] == "False") {
+        if (parts[3] == "False") {
             _isComplete = false;
         }
-        if (parts[4] == "True") {
+        if (parts[3] == "True") {
             _isComplete = true;
         }
     }

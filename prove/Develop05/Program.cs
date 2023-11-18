@@ -1,5 +1,9 @@
 using System;
-
+/// <summary>
+/// The following was done to exceed requirements:
+/// Add additional kinds of goals, such as "negative goals"
+/// where they lose points for bad habits.
+/// </summary>
 class Program
 {
     static void Main(string[] args)
@@ -10,7 +14,9 @@ class Program
 
         while (true) {
             // Shows the menu
+            Console.WriteLine();
             Console.WriteLine($"You have {score} points");
+            Console.WriteLine();
             int option = menu.ShowMainMenu(); // Shows menu and returns the users input. 
 
             // New Goal option
