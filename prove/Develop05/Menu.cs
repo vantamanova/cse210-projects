@@ -1,6 +1,6 @@
 public class Menu {
     //
-    int _score;
+    private int _score;
 
     // Behaviors
     // Prints options for the main program menu and returns what option the user picked
@@ -139,7 +139,7 @@ public class Menu {
         return myGoals;
     }
 
-    // Returnes total score after loading it from the file (might be a better way to do it)
+    // Returns total score after loading it from the file (might be a better way to do it)
     public int GetScore() {
         return _score;
     }

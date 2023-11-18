@@ -3,7 +3,7 @@ public abstract class Goal {
     protected string _name;
     protected string _discription;
     protected int _value; 
-    protected int _points;
+    
 
     // Constructors
     public Goal(string name, string discription, int value) {
