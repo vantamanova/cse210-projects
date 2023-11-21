@@ -10,9 +10,15 @@ public class SimpleGoal : Goal {
     // Behaviors
    // Completes the goal. In charge of checking if the Goal is complete. Returns the points
     public override int RecordEvent() {
-        Console.WriteLine($"Congratulations! You have earned {_value} points");
-        _isComplete = true;
-        return _value;
+        if (_isComplete == false) {
+            Console.WriteLine($"Congratulations! You have earned {_value} points");
+            _isComplete = true;
+            return _value;
+        }
+        else {
+            Console.WriteLine("This goal has been completed already");
+            return 0;
+        }
     }
 
     // Returns the string according to _isComplete. Same code in two places

@@ -156,7 +156,6 @@ public class Menu {
         Console.Write("Which goal did you accomplish? ");
         int goalNum = int.Parse(Console.ReadLine()); 
         int index = goalNum - 1;
-        Console.WriteLine(index);
         score += myGoals[goalNum-1].RecordEvent();
         Console.WriteLine($"You now have {score} points!");
         
