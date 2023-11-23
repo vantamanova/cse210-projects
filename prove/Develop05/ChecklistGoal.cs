@@ -17,21 +17,16 @@ public class ChecklistGoal : Goal {
    
     // Completes a goal. In charge of checking if the the Goal is complete. Returns the points
     public override int RecordEvent() {
-        if (_isComplete == false) {
-            Console.WriteLine($"Congratulations! You have earned {_value} points");
-            _result += 1;
+        
+        Console.WriteLine($"Congratulations! You have earned {_value} points");
+        _result += 1;
 
-            if (_result == _plan) {
-            _isComplete = true;
-            Console.WriteLine($"The bonus amound is {_bonusAmound}.");
-            return (_value + _bonusAmound);
-            }
-            else return _value;
+        if (_result == _plan) {
+        _isComplete = true;
+        Console.WriteLine($"The bonus amound is {_bonusAmound}.");
+        return (_value + _bonusAmound);
         }
-        else {
-            Console.WriteLine("This goal has been completed already");
-            return 0;
-        }
+        else return _value;
     }
     
     // Returns the string for display method. Same come in two places.
