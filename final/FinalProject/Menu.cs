@@ -1,6 +1,11 @@
 class Menu 
 {
     // Attributes
+    private string _date;
+    private int _level;
+    private string _userName;
+    private int _progress;
+
     // Constructors
     public Menu()
     {
@@ -21,6 +26,7 @@ class Menu
         };
         WriteMultiLine(menuOptions);
 
+        Console.WriteLine();
         Console.Write("Please pick an option: ");
         int answer = int.Parse(Console.ReadLine());
 
@@ -30,6 +36,7 @@ class Menu
     // Used to display Operatios menu. Returnes int
     public int DisplayOperations()
     {
+        Console.Clear();
         List<string> menuOptions = new List<string>
         {
             "What do you want to work on?",
@@ -49,10 +56,35 @@ class Menu
     }
 
     // Used to write multiple lines of text
-    private static void WriteMultiLine(List<string> myList) {
+    private static void WriteMultiLine(List<string> myList)
+    {
         foreach (var line in myList)
         {
             Console.WriteLine(line);
         }
+    }
+
+    // Used to create and run right type of assignment
+    public void RunAssignment()
+    {
+        Console.WriteLine("Not finished");
+    }
+
+    // Used to save progress to a .txt file
+    public void SaveProgressTxt()
+    {
+        Console.Write("Plaese enter the file name: ");
+        string fileName = Console.ReadLine();
+
+        Console.WriteLine("Not finished");
+    }
+    
+    // Used to load progress from .txt file
+    public void LoadProgressTxt()
+    {
+        Console.Write("Plaese enter the file name: ");
+        string fileName = Console.ReadLine();
+
+        Console.WriteLine("Not finished");
     }
 }
