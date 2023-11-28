@@ -12,14 +12,20 @@ class Program
         while (true)
         {
             int answer = menu.DisplayMenu();
+            // Practice option
             if (answer == 1)
             {
                 int operation = menu.DisplayOperations();
+                Operation assignment = menu.CreateAssignment(operation); // Gets the right type of assignment from the user to pass it as a parameter
+
+                menu.RunAssignment(assignment);
             }
+            // Load file option
             else if (answer == 2)
             {
                 menu.LoadProgressTxt();
             }
+            // Save file option
             else if (answer == 3)
             {
                 menu.SaveProgressTxt();

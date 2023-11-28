@@ -64,10 +64,53 @@ class Menu
         }
     }
 
-    // Used to create and run right type of assignment
-    public void RunAssignment()
+    // Useed to create an assignment. Returns Operation object
+    public Operation CreateAssignment(int operation)
     {
-        Console.WriteLine("Not finished");
+        if (operation == 1)
+        {
+            Addition assignment = new Addition();
+            assignment.ShowDescription();
+            return assignment;
+        }
+        if (operation == 2)
+        {
+            Subtraction assignment = new Subtraction();
+            assignment.ShowDescription();
+            return assignment;
+        }
+        if (operation == 3)
+        {
+            Division assignment = new Division();
+            assignment.ShowDescription();
+            return assignment;
+        }
+        if (operation == 4)
+        {
+            Multiplication assignment = new Multiplication();
+            assignment.ShowDescription();
+            return assignment;
+        }
+        else // Need to think on this
+        {
+            Comparison assignment = new Comparison();
+            assignment.ShowDescription();
+            return assignment;
+        }  
+    }
+
+    public void RunAssignment(Operation assignment) // is there other way to do it?
+    {
+        // Need to create a loop here
+        Console.Clear();
+        int i = 0;
+        while (i != 10)
+        {
+            int answer = assignment.GetAssignment();
+            Console.WriteLine(assignment.CheckAssignment(answer));
+            i += 1;
+        }
+        Console.WriteLine($"You got {assignment.GetScore()} points!"); // Need to put it to total game score? or not
     }
 
     // Used to save progress to a .txt file
