@@ -26,8 +26,12 @@ public abstract class Operation
 		return number;
 	}
 
-
 	public abstract string GetStringRepresentation();
+	public void LoadProgress(string progress)
+	{
+		
+		_score = int.Parse(progress);
+	}
 	
 	
 	// Getters and Setters

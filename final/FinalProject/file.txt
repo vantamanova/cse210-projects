@@ -1,2 +1,4 @@
 Vera
-Addition:15
+Addition:13
+Subtraction:13
+Multiplication:10

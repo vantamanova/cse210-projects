@@ -22,7 +22,8 @@ class Menu
             "   1. Practice",
             "   2. Load Progress",
             "   3. Save Progress",
-            "   4. Quit",
+            "   4. Show Progress",
+            "   5. Quit",
         };
         WriteMultiLine(menuOptions);
 
@@ -55,6 +56,15 @@ class Menu
         return answer;
     }
 
+    // Used to show progress on assignments
+    public void ShowProgress(List<Operation> assigmentsList)
+    {
+        foreach (var element in assigmentsList)
+        {
+            Console.WriteLine($"{element.GetName()}. Score: {element.GetScore()}");
+        }
+    }
+    
     // Used to write multiple lines of text
     private static void WriteMultiLine(List<string> myList)
     {
@@ -99,6 +109,7 @@ class Menu
         }  
     }
 
+    // Keep showing assignments
     public void RunAssignment(Operation assignment) // is there other way to do it?
     {
         // Need to create a loop here
@@ -153,11 +164,47 @@ class Menu
     }
 
     // Used to load progress from .txt file
-    public void LoadProgressTxt()
-    {
-        Console.Write("Plaese enter the file name: ");
-        string fileName = Console.ReadLine();
+    public List<Operation> LoadProgressTxt() {
+        List<Operation> operationsList = new List<Operation>();
 
-        Console.WriteLine("Not finished");
+        Console.Write("What is the name of the file? ");
+        string fileName = Console.ReadLine();
+        string[] lines = System.IO.File.ReadAllLines(fileName);
+
+        _userName = lines[0];
+        lines = lines.Skip(1).ToArray();
+
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split(":");
+
+            if (parts[0] == "Addition") {
+                Addition newAssignment = new Addition();
+                newAssignment.LoadProgress(parts[1]);
+                operationsList.Add(newAssignment);
+            }
+            if (parts[0] == "Subtraction") {
+                Subtraction newAssignment = new Subtraction();
+                newAssignment.LoadProgress(parts[1]);
+                operationsList.Add(newAssignment);
+            }
+            if (parts[0] == "Division") {
+                Division newAssignment = new Division();
+                newAssignment.LoadProgress(parts[1]);
+                operationsList.Add(newAssignment);
+            }  
+            if (parts[0] == "Multiplication") {
+                Multiplication newAssignment = new Multiplication();
+                newAssignment.LoadProgress(parts[1]);
+                operationsList.Add(newAssignment);
+            }
+            if (parts[0] == "Comparison") {
+                Comparison newAssignment = new Comparison();
+                newAssignment.LoadProgress(parts[1]);
+                operationsList.Add(newAssignment);
+            }      
+        }
+
+        return operationsList;
     }
 }

@@ -29,7 +29,7 @@ class Program
             // Load file option
             else if (answer == 2)
             {
-                menu.LoadProgressTxt();
+                assigmentsList = menu.LoadProgressTxt();
             }
             // Save file option
             else if (answer == 3)
@@ -37,6 +37,12 @@ class Program
                 menu.SaveProgressTxt(assigmentsList, name);
             }
             else if (answer == 4)
+            {
+                Console.WriteLine();
+                menu.ShowProgress(assigmentsList);
+                Console.WriteLine();
+            }
+            else if (answer == 5)
             {
                 break;
             }
