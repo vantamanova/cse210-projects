@@ -33,4 +33,9 @@ class Multiplication : Operation
         }
         else return false;
     }
+
+    public override string GetStringRepresentation()  // Same for all or not?
+    {
+        return ($"{_operationName}:{_score}");
+    }
 }

@@ -4,10 +4,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        int progress = 0;
-        Menu menu = new Menu();
         Console.Clear();
         Console.WriteLine("Welcome to Math Tytoring Program!");
+
+        Console.Write("Please enter your name: ");
+        string name = Console.ReadLine();
+
+        // Creates the Menu object and List to store all work
+        Menu menu = new Menu(name);
+        List<Operation> assigmentsList = new List<Operation>();
 
         while (true)
         {
@@ -19,6 +24,7 @@ class Program
                 Operation assignment = menu.CreateAssignment(operation); // Gets the right type of assignment from the user to pass it as a parameter
 
                 menu.RunAssignment(assignment);
+                menu.AddAssignment(assigmentsList, assignment);
             }
             // Load file option
             else if (answer == 2)
@@ -28,7 +34,7 @@ class Program
             // Save file option
             else if (answer == 3)
             {
-                menu.SaveProgressTxt();
+                menu.SaveProgressTxt(assigmentsList, name);
             }
             else if (answer == 4)
             {

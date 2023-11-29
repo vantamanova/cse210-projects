@@ -33,4 +33,9 @@ class Addition : Operation
         }
         else return false;
     }
+
+    public override string GetStringRepresentation() 
+    {
+        return ($"{_operationName}:{_score}");
+    }
 }

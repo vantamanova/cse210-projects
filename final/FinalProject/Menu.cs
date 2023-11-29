@@ -7,14 +7,14 @@ class Menu
     private int _progress;
 
     // Constructors
-    public Menu()
+    public Menu(string name)
     {
-
+        _userName = name;
     }
     // Behaviors
 
     // Used to display Main menu. Returnes int
-    public int DisplayMenu()
+    public int DisplayMenu() 
     {
         List<string> menuOptions = new List<string>
         {
@@ -114,14 +114,44 @@ class Menu
     }
 
     // Used to save progress to a .txt file
-    public void SaveProgressTxt()
+    public void SaveProgressTxt(List<Operation> assigmentsList, string name) // done
     {
         Console.Write("Plaese enter the file name: ");
         string fileName = Console.ReadLine();
 
-        Console.WriteLine("Not finished");
+        using (StreamWriter outputFile = new StreamWriter(fileName, false))
+        {
+            outputFile.WriteLine(name);
+            foreach (Operation assignment in assigmentsList) {
+                outputFile.WriteLine(assignment.GetStringRepresentation());
+            }
+        }
     }
     
+    // Used to add the assignment to the list and avoid duplication
+    public List<Operation> AddAssignment(List<Operation> assigmentsList, Operation assignment)
+    {
+        bool notInTheList = true;
+        // Checking if this type of assignment already exist
+        foreach (var element in assigmentsList)
+            {
+                if (element.GetName() == assignment.GetName())
+                {
+                    element.SetScore(element.GetScore() + assignment.GetScore());
+                    notInTheList = false;
+                    break;
+                }
+            }
+        
+        // If the type of assignment doesn't exist add it to the list
+        if (notInTheList == true) 
+        {
+            assigmentsList.Add(assignment);
+        }
+
+        return assigmentsList;
+    }
+
     // Used to load progress from .txt file
     public void LoadProgressTxt()
     {

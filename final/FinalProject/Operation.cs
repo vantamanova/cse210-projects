@@ -25,9 +25,24 @@ public abstract class Operation
         int number = rnd.Next(0, maxNum);
 		return number;
 	}
+
+
+	public abstract string GetStringRepresentation();
+	
+	
+	// Getters and Setters
 	public int GetScore()
 	{
 		return _score;
 	}
 
+	public void SetScore(int score)
+	{
+		_score = score;
+	}
+
+	public string GetName()
+	{
+		return _operationName;
+	}
 }
