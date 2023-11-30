@@ -4,11 +4,14 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.Clear();
-        Console.WriteLine("Welcome to Math Tytoring Program!");
 
+        Console.Clear();
         Console.Write("Please enter your name: ");
         string name = Console.ReadLine();
+
+        Console.Clear();
+        Console.WriteLine($"Welcome to Math Tytoring Program, {name}!");
+        Console.WriteLine();
 
         // Creates the Menu object and List to store all work
         Menu menu = new Menu(name);

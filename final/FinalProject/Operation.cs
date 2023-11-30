@@ -4,14 +4,22 @@ public abstract class Operation
     protected string _operationName;
 	protected string _description;
 	protected string _numbType;
-	protected int _score;
+	protected int _score; 
 	protected int _num1;
 	protected int _num2;
 	protected int _maxNum;
+	protected int _duration;
+	protected static int _level;
 
     // Constructors
     public Operation()
 	{
+
+	}
+
+	public Operation(int duration)
+	{
+		_duration = duration;
 
 	}
     
@@ -29,8 +37,12 @@ public abstract class Operation
 	public abstract string GetStringRepresentation();
 	public void LoadProgress(string progress)
 	{
-		
 		_score = int.Parse(progress);
+	}
+
+	public void CheckLevel() // will not work till I will be able to get the total score
+	{
+		Console.WriteLine("Level");
 	}
 	
 	
@@ -48,5 +60,10 @@ public abstract class Operation
 	public string GetName()
 	{
 		return _operationName;
+	}
+
+	public int GetDuration()
+	{
+		return _duration;
 	}
 }

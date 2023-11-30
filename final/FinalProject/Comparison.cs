@@ -2,6 +2,7 @@ class Comparison : Operation
 {
     // Attributes
     // Constructors
+    // Used when new element of the class created from the file
     public Comparison()
     {
         _operationName = "Comparison";
@@ -9,6 +10,16 @@ class Comparison : Operation
         _numbType = "Whole";
         _maxNum = 10; 
     }
+
+    // Used when new element of the class created from the program
+    public Comparison(int duration) : base(duration)
+	{
+        _operationName = "Comparison";
+        _description = "A process or method in which one can determine whether a number is smaller, greater, or equal to another number according to their values. ";
+        _numbType = "Whole";
+        _maxNum = 10;
+	}
+
     // Behaviors
     public override void ShowDescription() // Will put it into parent class if there will be nothing else (like example)
     {

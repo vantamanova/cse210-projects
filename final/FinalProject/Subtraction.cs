@@ -2,6 +2,7 @@ class Subtraction : Operation
 {
     // Attributes
     // Constructors
+    // Used when new element of the class created from the file
     public Subtraction()
     {
         _operationName = "Subtraction";
@@ -9,6 +10,15 @@ class Subtraction : Operation
         _numbType = "Whole";
         _maxNum = 10;
     }
+    
+    // Used when new element of the class created from the program
+    public Subtraction(int duration) : base(duration)
+	{
+        _operationName = "Subtraction";
+        _description = "The operation or process of finding the difference between two numbers or quantities is known as subtraction.";
+        _numbType = "Whole";
+        _maxNum = 10;
+	}
     // Behaviors
     public override void ShowDescription()  // Will put it into parent class if there will be nothing else (like example)
     {

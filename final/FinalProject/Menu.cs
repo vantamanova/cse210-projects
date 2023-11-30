@@ -2,9 +2,10 @@ class Menu
 {
     // Attributes
     private string _date;
-    private int _level;
+    private int _level; // Used in Operation Class no need for this to be here
     private string _userName;
-    private int _progress;
+    private int _progress; // Do I need it here?
+    
 
     // Constructors
     public Menu(string name)
@@ -77,33 +78,37 @@ class Menu
     // Useed to create an assignment. Returns Operation object
     public Operation CreateAssignment(int operation)
     {
+        // Getting duration of the assignment
+        Console.Write("How long would you like to practice? (in seconds): ");
+        int duration = int.Parse(Console.ReadLine());
+
         if (operation == 1)
         {
-            Addition assignment = new Addition();
+            Addition assignment = new Addition(duration);
             assignment.ShowDescription();
             return assignment;
         }
         if (operation == 2)
         {
-            Subtraction assignment = new Subtraction();
+            Subtraction assignment = new Subtraction(duration);
             assignment.ShowDescription();
             return assignment;
         }
         if (operation == 3)
         {
-            Division assignment = new Division();
+            Division assignment = new Division(duration);
             assignment.ShowDescription();
             return assignment;
         }
         if (operation == 4)
         {
-            Multiplication assignment = new Multiplication();
+            Multiplication assignment = new Multiplication(duration);
             assignment.ShowDescription();
             return assignment;
         }
         else // Need to think on this
         {
-            Comparison assignment = new Comparison();
+            Comparison assignment = new Comparison(duration);
             assignment.ShowDescription();
             return assignment;
         }  
@@ -112,16 +117,22 @@ class Menu
     // Keep showing assignments
     public void RunAssignment(Operation assignment) // is there other way to do it?
     {
-        // Need to create a loop here
+        // Using loop keeps showing assignments according to duration picked by user 
         Console.Clear();
-        int i = 0;
-        while (i != 10)
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(assignment.GetDuration());
+
+        
+        while (DateTime.Now < endTime)
         {
             int answer = assignment.GetAssignment();
             Console.WriteLine(assignment.CheckAssignment(answer));
-            i += 1;
+            
         }
-        Console.WriteLine($"You got {assignment.GetScore()} points!"); // Need to put it to total game score? or not
+
+        // Checks if they can Level Up
+        assignment.CheckLevel();
+        Console.WriteLine($"You got {assignment.GetScore()} points on {assignment.GetName()} assignment!"); // Need to put it to total game score? or not
     }
 
     // Used to save progress to a .txt file
@@ -206,5 +217,11 @@ class Menu
         }
 
         return operationsList;
+    }
+
+    // Used to get total score
+    private static void GetTotalScore()
+    {
+        Console.WriteLine("DO I NEED IT?");
     }
 }
