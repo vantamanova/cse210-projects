@@ -4,7 +4,7 @@ class Menu
     private string _date;
     private int _level; // Used in Operation Class no need for this to be here
     private string _userName;
-    private int _progress; // Do I need it here?
+    //private int _totalScore; // Do I need it here?
     
 
     // Constructors
@@ -122,7 +122,6 @@ class Menu
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(assignment.GetDuration());
 
-        
         while (DateTime.Now < endTime)
         {
             int answer = assignment.GetAssignment();
@@ -131,7 +130,6 @@ class Menu
         }
 
         // Checks if they can Level Up
-        assignment.CheckLevel();
         Console.WriteLine($"You got {assignment.GetScore()} points on {assignment.GetName()} assignment!"); // Need to put it to total game score? or not
     }
 
@@ -219,5 +217,45 @@ class Menu
         return operationsList;
     }
 
-    // Used to get total score
+    // Used to get total score. DO I NEED IT
+    public int GetTotalScore(int operation, List<Operation> assigmentsList)
+    {
+        string operationName = "";
+        int totalScore = 0; 
+
+        if (operation == 1)
+        {
+            operationName = "Addition";
+        }
+        if (operation == 2)
+        {
+            operationName = "Subtraction";
+        }
+        if (operation == 3)
+        {
+            operationName = "Division";
+        }
+        if (operation == 4)
+        {
+            operationName = "Multiplication";
+        }
+        if (operation == 5)
+        {
+            operationName = "Comparison";
+        }
+
+        foreach (var element in assigmentsList)
+        {
+
+            if (element.GetName() == operationName)
+            {
+                totalScore = element.GetScore();
+                break;
+            }  
+        }
+
+        Console.WriteLine($"Total Score on {operationName} assignment is {totalScore}");
+        return totalScore;
+
+    }
 }

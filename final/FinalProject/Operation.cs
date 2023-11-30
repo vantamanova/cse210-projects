@@ -39,21 +39,6 @@ public abstract class Operation
 	{
 		_score = int.Parse(progress);
 	}
-
-	public void CheckLevel() // will not work till I will be able to get the total score
-	{
-		if ((_score >= 0) && (_score <= 10))
-		{
-			_level = 1;
-			_maxNum = 10;
-		}
-		if ((_score > 10) && (_score <= 20))
-		{
-			_level = 2;
-			_maxNum = 20;
-		}
-	}
-	
 	
 	// Getters and Setters
 	public int GetScore()
