@@ -9,7 +9,7 @@ public abstract class Operation
 	protected int _num2;
 	protected int _maxNum;
 	protected int _duration;
-	protected static int _level;
+	protected int _level;
 
     // Constructors
     public Operation()
@@ -42,7 +42,16 @@ public abstract class Operation
 
 	public void CheckLevel() // will not work till I will be able to get the total score
 	{
-		Console.WriteLine("Level");
+		if ((_score >= 0) && (_score <= 10))
+		{
+			_level = 1;
+			_maxNum = 10;
+		}
+		if ((_score > 10) && (_score <= 20))
+		{
+			_level = 2;
+			_maxNum = 20;
+		}
 	}
 	
 	
@@ -65,5 +74,10 @@ public abstract class Operation
 	public int GetDuration()
 	{
 		return _duration;
+	}
+	
+	public int GetLevel()
+	{
+		return _level;
 	}
 }

@@ -62,7 +62,7 @@ class Menu
     {
         foreach (var element in assigmentsList)
         {
-            Console.WriteLine($"{element.GetName()}. Score: {element.GetScore()}");
+            Console.WriteLine($"{element.GetName()}. Score: {element.GetScore()}. Level: {element.GetLevel()}");
         }
     }
     
@@ -220,8 +220,4 @@ class Menu
     }
 
     // Used to get total score
-    private static void GetTotalScore()
-    {
-        Console.WriteLine("DO I NEED IT?");
-    }
 }
