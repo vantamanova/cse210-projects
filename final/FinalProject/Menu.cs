@@ -4,17 +4,20 @@ class Menu
     private string _date;
     private int _level; // Used in Operation Class no need for this to be here
     private string _userName;
-    //private int _totalScore; // Do I need it here?
+    private int _progress; // Do I need it here?
     
+
 
     // Constructors
     public Menu(string name)
     {
         _userName = name;
     }
+    
+    
     // Behaviors
 
-    // Used to display Main menu. Returnes int
+    // Used to display Main menu. Returns int
     public int DisplayMenu() 
     {
         List<string> menuOptions = new List<string>
@@ -35,7 +38,7 @@ class Menu
         return answer;
     }
 
-    // Used to display Operatios menu. Returnes int
+    // Used to display Operatios menu. Returns int
     public int DisplayOperations()
     {
         Console.Clear();
@@ -75,7 +78,7 @@ class Menu
         }
     }
 
-    // Useed to create an assignment. Returns Operation object
+    // Used to create an assignment. Returns Operation object
     public Operation CreateAssignment(int operation)
     {
         // Getting duration of the assignment

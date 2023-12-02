@@ -60,6 +60,11 @@ class Comparison : Operation
         }
         else return false;
     }
+
+    public override int CalculatePoints()
+    {
+        return 0;
+    }
     public override string GetStringRepresentation() // Same for all or not?
     {
         return ($"{_operationName}:{_score}");

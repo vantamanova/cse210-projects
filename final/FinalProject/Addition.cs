@@ -20,6 +20,8 @@ class Addition : Operation
         _numbType = "Whole";
         _maxNum = 10;
 	}
+
+
     // Behaviors
     public override void ShowDescription() // Will put it into parent class if there will be nothing else (like example)
     {
@@ -43,6 +45,11 @@ class Addition : Operation
             return true;
         }
         else return false;
+    }
+
+    public override int CalculatePoints()
+    {
+        return 0;
     }
 
     public override string GetStringRepresentation() 

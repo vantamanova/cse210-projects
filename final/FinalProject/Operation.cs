@@ -34,10 +34,17 @@ public abstract class Operation
 		return number;
 	}
 
+	public abstract int CalculatePoints(); 
+
 	public abstract string GetStringRepresentation();
 	public void LoadProgress(string progress)
 	{
 		_score = int.Parse(progress);
+	}
+
+	public void LevelUp()
+	{
+		Console.WriteLine();
 	}
 	
 	// Getters and Setters
