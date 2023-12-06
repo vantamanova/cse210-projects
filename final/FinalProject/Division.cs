@@ -7,17 +7,13 @@ class Division : Operation
     {
         _operationName = "Division";
         _description = "The operation or process of finding how many equal groups are formed or how many are in each group when sharing fairly.";
-        _numbType = "Whole";
-        _maxNum = 10;
     }
 
     // Used when new element of the class created from the program
-    public Division(int duration) : base(duration)
+    public Division(int duration, int score) : base(duration, score)
 	{
         _operationName = "Division";
         _description = "The operation or process of finding how many equal groups are formed or how many are in each group when sharing fairly.";
-        _numbType = "Whole";
-        _maxNum = 10;
 	}
     // Behaviors
     public override void ShowDescription() // Will put it into parent class if there will be nothing else (like example)
@@ -49,11 +45,6 @@ class Division : Operation
             return true;
         }
         else return false;
-    }
-
-    public override int CalculatePoints()
-    {
-        return 0;
     }
 
     public override string GetStringRepresentation()  // Same for all or not?

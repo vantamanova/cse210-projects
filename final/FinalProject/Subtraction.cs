@@ -7,17 +7,13 @@ class Subtraction : Operation
     {
         _operationName = "Subtraction";
         _description = "The operation or process of finding the difference between two numbers or quantities is known as subtraction.";
-        _numbType = "Whole";
-        _maxNum = 10;
     }
     
     // Used when new element of the class created from the program
-    public Subtraction(int duration) : base(duration)
+    public Subtraction(int duration, int score) : base(duration, score)
 	{
         _operationName = "Subtraction";
         _description = "The operation or process of finding the difference between two numbers or quantities is known as subtraction.";
-        _numbType = "Whole";
-        _maxNum = 10;
 	}
     // Behaviors
     public override void ShowDescription()  // Will put it into parent class if there will be nothing else (like example)
@@ -42,11 +38,6 @@ class Subtraction : Operation
             return true;
         }
         else return false;
-    }
-
-    public override int CalculatePoints()
-    {
-        return 0;
     }
 
     public override string GetStringRepresentation()  // Same for all or not?

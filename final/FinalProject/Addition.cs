@@ -8,17 +8,13 @@ class Addition : Operation
     {
         _operationName = "Addition";
         _description = "In math is a process of combining two or more numbers. Addends are the numbers being added, and the result or the final answer we get after the process is called the sum.";
-        _numbType = "Whole";
-        _maxNum = 10;
     }
 
     // Used when new element of the class created from the program
-    public Addition(int duration) : base(duration)
+    public Addition(int duration, int score) : base(duration, score)
 	{
         _operationName = "Addition";
         _description = "In math is a process of combining two or more numbers. Addends are the numbers being added, and the result or the final answer we get after the process is called the sum.";
-        _numbType = "Whole";
-        _maxNum = 10;
 	}
 
 
@@ -45,11 +41,6 @@ class Addition : Operation
             return true;
         }
         else return false;
-    }
-
-    public override int CalculatePoints()
-    {
-        return 0;
     }
 
     public override string GetStringRepresentation() 

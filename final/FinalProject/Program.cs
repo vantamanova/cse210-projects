@@ -24,7 +24,8 @@ class Program
             if (answer == 1)
             {
                 int operation = menu.DisplayOperations();
-                Operation assignment = menu.CreateAssignment(operation); // Gets the right type of assignment from the user to pass it as a parameter
+                int totalScore = menu.GetTotalScore(operation, assigmentsList); // Geting total points on the particular type of assignment
+                Operation assignment = menu.CreateAssignment(operation, totalScore); // Gets the right type of assignment from the user to pass it as a parameter
 
                 menu.RunAssignment(assignment);
                 menu.AddAssignment(assigmentsList, assignment);

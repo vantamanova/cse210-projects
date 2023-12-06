@@ -1,10 +1,7 @@
 class Menu 
 {
     // Attributes
-    private string _date;
-    private int _level; // Used in Operation Class no need for this to be here
     private string _userName;
-    private int _progress; // Do I need it here?
     
 
 
@@ -65,7 +62,7 @@ class Menu
     {
         foreach (var element in assigmentsList)
         {
-            Console.WriteLine($"{element.GetName()}. Score: {element.GetScore()}. Level: {element.GetLevel()}");
+            Console.WriteLine($"{element.GetName()}. Score: {element.GetScore()}.");
         }
     }
     
@@ -79,7 +76,7 @@ class Menu
     }
 
     // Used to create an assignment. Returns Operation object
-    public Operation CreateAssignment(int operation)
+    public Operation CreateAssignment(int operation, int totalScore)
     {
         // Getting duration of the assignment
         Console.Write("How long would you like to practice? (in seconds): ");
@@ -87,31 +84,31 @@ class Menu
 
         if (operation == 1)
         {
-            Addition assignment = new Addition(duration);
+            Addition assignment = new Addition(duration, totalScore);
             assignment.ShowDescription();
             return assignment;
         }
         if (operation == 2)
         {
-            Subtraction assignment = new Subtraction(duration);
+            Subtraction assignment = new Subtraction(duration, totalScore);
             assignment.ShowDescription();
             return assignment;
         }
         if (operation == 3)
         {
-            Division assignment = new Division(duration);
+            Division assignment = new Division(duration, totalScore);
             assignment.ShowDescription();
             return assignment;
         }
         if (operation == 4)
         {
-            Multiplication assignment = new Multiplication(duration);
+            Multiplication assignment = new Multiplication(duration, totalScore);
             assignment.ShowDescription();
             return assignment;
         }
         else // Need to think on this
         {
-            Comparison assignment = new Comparison(duration);
+            Comparison assignment = new Comparison(duration, totalScore);
             assignment.ShowDescription();
             return assignment;
         }  
@@ -160,7 +157,7 @@ class Menu
             {
                 if (element.GetName() == assignment.GetName())
                 {
-                    element.SetScore(element.GetScore() + assignment.GetScore());
+                    element.SetScore(assignment.GetScore());
                     notInTheList = false;
                     break;
                 }
@@ -220,7 +217,7 @@ class Menu
         return operationsList;
     }
 
-    // Used to get total score. DO I NEED IT
+    // Used to get total score. Used to create new class objects with current score
     public int GetTotalScore(int operation, List<Operation> assigmentsList)
     {
         string operationName = "";

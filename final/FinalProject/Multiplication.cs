@@ -7,17 +7,13 @@ class Multiplication : Operation
     {
         _operationName = "Multiplication";
         _description = "In math, the meaning of a multiple is the product result of one number multiplied by another number. ";
-        _numbType = "Whole";
-        _maxNum = 10;
     }
     
     // Used when new element of the class created from the program
-    public Multiplication(int duration) : base(duration)
+    public Multiplication(int duration, int score) : base(duration, score)
 	{
         _operationName = "Multiplication";
         _description = "In math, the meaning of a multiple is the product result of one number multiplied by another number. ";
-        _numbType = "Whole";
-        _maxNum = 10;
 	}
     // Behaviors
     public override void ShowDescription() // Will put it into parent class if there will be nothing else (like example)
@@ -42,11 +38,6 @@ class Multiplication : Operation
             return true;
         }
         else return false;
-    }
-
-    public override int CalculatePoints()
-    {
-        return 0;
     }
 
     public override string GetStringRepresentation()  // Same for all or not?

@@ -7,17 +7,13 @@ class Comparison : Operation
     {
         _operationName = "Comparison";
         _description = "A process or method in which one can determine whether a number is smaller, greater, or equal to another number according to their values. ";
-        _numbType = "Whole";
-        _maxNum = 10; 
     }
 
     // Used when new element of the class created from the program
-    public Comparison(int duration) : base(duration)
+    public Comparison(int duration, int score) : base(duration, score)
 	{
         _operationName = "Comparison";
         _description = "A process or method in which one can determine whether a number is smaller, greater, or equal to another number according to their values. ";
-        _numbType = "Whole";
-        _maxNum = 10;
 	}
 
     // Behaviors
@@ -61,10 +57,6 @@ class Comparison : Operation
         else return false;
     }
 
-    public override int CalculatePoints()
-    {
-        return 0;
-    }
     public override string GetStringRepresentation() // Same for all or not?
     {
         return ($"{_operationName}:{_score}");
