@@ -28,14 +28,14 @@ class Comparison : Operation
 
     public override int GetAssignment()
     {
-        _num1 = GetRandomNumber(_maxNum);
-        _num2 = GetRandomNumber(_maxNum);
+        _leftOperand = GetRandomNumber(_maxNum);
+        _rightOperand = GetRandomNumber(_maxNum);
         
         Console.WriteLine("For '=' press 0 ");
         Console.WriteLine("For '>' press 1 ");
         Console.WriteLine("For '<' press 2 ");
 
-        Console.WriteLine($"{_num1} and {_num2} ");
+        Console.WriteLine($"{_leftOperand} and {_rightOperand} ");
         int answer = int.Parse(Console.ReadLine());
         Console.WriteLine(); 
         return answer;
@@ -43,17 +43,17 @@ class Comparison : Operation
 
     public override bool CheckAssignment(int answer) 
     {
-        if ((_num1 == _num2) && (answer == 0))
+        if ((_leftOperand == _rightOperand) && (answer == 0))
         {
             _score += 1;
             return true;
         }
-        if ((_num1 > _num2) && (answer == 1))
+        if ((_leftOperand > _rightOperand) && (answer == 1))
         {
             _score += 1;
             return true;
         }
-        if ((_num1 < _num2) && (answer == 2))
+        if ((_leftOperand < _rightOperand) && (answer == 2))
         {
             _score += 1;
             return true;

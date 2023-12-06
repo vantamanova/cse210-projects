@@ -27,16 +27,16 @@ class Subtraction : Operation
 
     public override int GetAssignment()
     {
-        _num1 = GetRandomNumber(_maxNum);
-        _num2 = GetRandomNumber(_maxNum);
-        Console.Write($"{_num1} - {_num2} = ");
+        _leftOperand = GetRandomNumber(_maxNum);
+        _rightOperand = GetRandomNumber(_maxNum);
+        Console.Write($"{_leftOperand} - {_rightOperand} = ");
         int answer = int.Parse(Console.ReadLine());
         return answer; 
     }
 
     public override bool CheckAssignment(int answer)
     {
-        if ((_num1 - _num2) == answer)
+        if ((_leftOperand - _rightOperand) == answer)
         {
             _score += 1;
             return true;

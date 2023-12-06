@@ -5,8 +5,8 @@ public abstract class Operation
 	protected string _description;
 	protected string _numbType;
 	protected int _score; 
-	protected int _num1;
-	protected int _num2;
+	protected int _leftOperand;
+	protected int _rightOperand;
 	protected int _maxNum;
 	protected int _duration;
 	protected int _level;
