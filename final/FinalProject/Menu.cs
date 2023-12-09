@@ -85,37 +85,32 @@ class Menu
         if (operation == 1)
         {
             Addition assignment = new Addition(duration, totalScore);
-            assignment.ShowDescription();
             return assignment;
         }
         if (operation == 2)
         {
             Subtraction assignment = new Subtraction(duration, totalScore);
-            assignment.ShowDescription();
             return assignment;
         }
         if (operation == 3)
         {
             Division assignment = new Division(duration, totalScore);
-            assignment.ShowDescription();
             return assignment;
         }
         if (operation == 4)
         {
             Multiplication assignment = new Multiplication(duration, totalScore);
-            assignment.ShowDescription();
             return assignment;
         }
         else // Need to think on this
         {
             Comparison assignment = new Comparison(duration, totalScore);
-            assignment.ShowDescription();
             return assignment;
         }  
     }
 
     // Keep showing assignments
-    public void RunAssignment(Operation assignment) // is there other way to do it?
+    public void RunAssignment(Operation assignment) 
     {
         // Using loop keeps showing assignments according to duration picked by user 
         Console.Clear();
@@ -130,11 +125,11 @@ class Menu
         }
 
         // Checks if they can Level Up
-        Console.WriteLine($"You got {assignment.GetScore()} points on {assignment.GetName()} assignment!"); // Need to put it to total game score? or not
+        Console.WriteLine($"You got {assignment.GetScore()} points on {assignment.GetName()} assignment!");
     }
 
     // Used to save progress to a .txt file
-    public void SaveProgressTxt(List<Operation> assigmentsList, string name) // done
+    public void SaveProgressTxt(List<Operation> assigmentsList, string name) 
     {
         Console.Write("Plaese enter the file name: ");
         string fileName = Console.ReadLine();
@@ -254,7 +249,9 @@ class Menu
             }  
         }
 
-        Console.WriteLine($"Total Score on {operationName} assignment is {totalScore}");
+        Console.Clear();
+        Console.WriteLine($"Total Score on {operationName} assignment is {totalScore} points");
+        Console.WriteLine();
         return totalScore;
 
     }

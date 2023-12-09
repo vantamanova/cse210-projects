@@ -6,22 +6,17 @@ class Comparison : Operation
     public Comparison()
     {
         _operationName = "Comparison";
-        _description = "A process or method in which one can determine whether a number is smaller, greater, or equal to another number according to their values. ";
+        _description = "A process or method in which one can determine whether a number is \nsmaller, greater, or equal to another number according to their values. ";
     }
 
     // Used when new element of the class created from the program
     public Comparison(int duration, int score) : base(duration, score)
 	{
         _operationName = "Comparison";
-        _description = "A process or method in which one can determine whether a number is smaller, greater, or equal to another number according to their values. ";
+        _description = "A process or method in which one can determine whether a number is \nsmaller, greater, or equal to another number according to their values. ";
 	}
 
     // Behaviors
-    public override void ShowDescription() // Will put it into parent class if there will be nothing else (like example)
-    {
-        Console.WriteLine($"{_operationName}: {_description}");
-    }
-
     public override int GetAssignment()
     {
         _leftOperand = GetRandomNumber(_maxNum);
@@ -55,10 +50,5 @@ class Comparison : Operation
             return true;
         }
         else return false;
-    }
-
-    public override string GetStringRepresentation() // Same for all or not?
-    {
-        return ($"{_operationName}:{_score}");
     }
 }

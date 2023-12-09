@@ -16,11 +16,6 @@ class Subtraction : Operation
         _description = "The operation or process of finding the difference between two numbers or quantities is known as subtraction.";
 	}
     // Behaviors
-    public override void ShowDescription()  // Will put it into parent class if there will be nothing else (like example)
-    {
-        Console.WriteLine($"{_operationName}: {_description}");
-    }
-
     public override int GetAssignment()
     {
         _leftOperand = GetRandomNumber(_maxNum);
@@ -38,10 +33,5 @@ class Subtraction : Operation
             return true;
         }
         else return false;
-    }
-
-    public override string GetStringRepresentation()  // Same for all or not?
-    {
-        return ($"{_operationName}:{_score}");
     }
 }

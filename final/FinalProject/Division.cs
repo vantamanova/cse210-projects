@@ -16,11 +16,6 @@ class Division : Operation
         _description = "The operation or process of finding how many equal groups are formed or how many are in each group when sharing fairly.";
 	}
     // Behaviors
-    public override void ShowDescription() // Will put it into parent class if there will be nothing else (like example)
-    {
-        Console.WriteLine($"{_operationName}: {_description}");
-    }
-
     public override int GetAssignment()
     {
         _leftOperand = GetRandomNumber(_maxNum);
@@ -45,10 +40,5 @@ class Division : Operation
             return true;
         }
         else return false;
-    }
-
-    public override string GetStringRepresentation()  // Same for all or not?
-    {
-        return ($"{_operationName}:{_score}");
     }
 }

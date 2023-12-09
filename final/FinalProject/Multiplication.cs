@@ -16,11 +16,6 @@ class Multiplication : Operation
         _description = "In math, the meaning of a multiple is the product result of one number multiplied by another number. ";
 	}
     // Behaviors
-    public override void ShowDescription() // Will put it into parent class if there will be nothing else (like example)
-    {
-        Console.WriteLine($"{_operationName}: {_description}");
-    }
-
     public override int GetAssignment()
     {
         _leftOperand = GetRandomNumber(_maxNum);
@@ -38,10 +33,5 @@ class Multiplication : Operation
             return true;
         }
         else return false;
-    }
-
-    public override string GetStringRepresentation()  // Same for all or not?
-    {
-        return ($"{_operationName}:{_score}");
     }
 }

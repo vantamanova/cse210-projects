@@ -7,23 +7,18 @@ class Addition : Operation
     public Addition()
     {
         _operationName = "Addition";
-        _description = "In math is a process of combining two or more numbers. Addends are the numbers being added, and the result or the final answer we get after the process is called the sum.";
+        _description = "In math is a process of combining two or more numbers.\nAddends are the numbers being added, and the result or the final answer we get after the process is called the sum.";
     }
 
     // Used when new element of the class created from the program
     public Addition(int duration, int score) : base(duration, score)
 	{
         _operationName = "Addition";
-        _description = "In math is a process of combining two or more numbers. Addends are the numbers being added, and the result or the final answer we get after the process is called the sum.";
+        _description = "In math is a process of combining two or more numbers.\nAddends are the numbers being added, and the result or the final answer we get after the process is called the sum.";
 	}
 
 
     // Behaviors
-    public override void ShowDescription() // Will put it into parent class if there will be nothing else (like example)
-    {
-        Console.WriteLine($"{_operationName}: {_description}");
-    }
-
     public override int GetAssignment()
     {
         _leftOperand = GetRandomNumber(_maxNum);
@@ -41,10 +36,5 @@ class Addition : Operation
             return true;
         }
         else return false;
-    }
-
-    public override string GetStringRepresentation() 
-    {
-        return ($"{_operationName}:{_score}");
     }
 }

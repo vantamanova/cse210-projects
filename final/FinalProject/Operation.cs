@@ -3,7 +3,7 @@ public abstract class Operation
     // Attributes
     protected string _operationName;
 	protected string _description;
-	protected int _score; // can't update to static here because it changes the score for all objects
+	protected int _score;
 	protected int _leftOperand;
 	protected int _rightOperand;
 	protected int _duration;
@@ -24,7 +24,13 @@ public abstract class Operation
 	}
     
     // Behaviors
-	public abstract void ShowDescription();
+	public void ShowDescription()
+	{
+		Console.WriteLine();
+        Console.WriteLine($"{_operationName}: {_description}");
+        Console.WriteLine();
+        Console.WriteLine();
+	}
 	public abstract int GetAssignment();
 	public abstract bool CheckAssignment(int answer);
 	public static int GetRandomNumber(int maxNum)
@@ -34,7 +40,10 @@ public abstract class Operation
 		return number;
 	}
 
-	public abstract string GetStringRepresentation();
+	public string GetStringRepresentation()
+	{
+		return ($"{_operationName}:{_score}");
+	}
 	public void LoadProgress(string progress)
 	{
 		_score = int.Parse(progress);
